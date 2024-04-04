@@ -67,7 +67,9 @@ public class HomePage {
             String places[] = {"Choose a destination", "Baku", "Qazax", "Quba", "Qebele", "Berlin", "Istanbul"};
             JSpinner destinationTextArea = new JSpinner(new SpinnerListModel(places));
 
-            JScrollPane destinationScrollPane = new JScrollPane(destinationTextArea);
+            Dimension preferredSize = destinationTextArea.getPreferredSize();
+            preferredSize.height = 50;
+            destinationTextArea.setPreferredSize(preferredSize);
 
             int finalI = i;
             destinationTextArea.addChangeListener(new ChangeListener() {
@@ -83,7 +85,7 @@ public class HomePage {
                 }
             });
             destinationEntry.add(destinationLabel, BorderLayout.NORTH);
-            destinationEntry.add(destinationScrollPane, BorderLayout.CENTER);
+            destinationEntry.add(destinationTextArea, BorderLayout.CENTER);
             destinationPanel.add(destinationEntry);
         }
         leftPanel.add(destinationPanel, BorderLayout.CENTER);
