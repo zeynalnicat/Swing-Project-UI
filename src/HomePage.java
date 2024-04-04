@@ -2,32 +2,25 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import javax.swing.text.DefaultFormatter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
-
 public class HomePage {
     private JFrame ui;
-
-    private HashMap<Integer,String> destinations = new HashMap<>();
-
+    private HashMap<Integer, String> destinations = new HashMap<>();
     private JLabel rightResult;
 
     public HomePage() {
         destinations = new HashMap<>();
         initialize();
     }
-
     private void initialize() {
         ui = new JFrame("Assignments");
         ui.setSize(800, 600);
         ui.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         ui.setVisible(true);
-
 
         //header panel
         JPanel panel = new JPanel();
@@ -39,9 +32,7 @@ public class HomePage {
         txtHeader.setForeground(Color.WHITE);
         txtHeader.setFont(new Font("Arial", Font.BOLD, 24));
         txtHeader.setBorder(new EmptyBorder(20, 0, 0, 0));
-
         panel.add(txtHeader, BorderLayout.CENTER);
-
 
         // main label
         JPanel mainPanel = new JPanel(new BorderLayout());
@@ -56,7 +47,6 @@ public class HomePage {
             }
         };
 
-
         // left panel
         leftPanel.setLayout(new BorderLayout());
         leftPanel.setBorder(new EmptyBorder(30, 30, 30, 0));
@@ -65,16 +55,13 @@ public class HomePage {
         leftHeader.setFont(new Font("Arial", Font.BOLD, 16));
         leftHeader.setHorizontalAlignment(SwingConstants.CENTER);
         leftPanel.add(Box.createVerticalGlue(), BorderLayout.NORTH);
-
         leftPanel.add(leftHeader, BorderLayout.NORTH);
-
 
         JPanel destinationPanel = new JPanel(new GridLayout(5, 1, 0, 10));
         ;
         destinationPanel.setBorder(new EmptyBorder(30, 0, 30, 0));
         for (int i = 0; i < 5; i++) {
             JPanel destinationEntry = new JPanel(new BorderLayout());
-
             JLabel destinationLabel = new JLabel("Destination " + (i + 1));
 
             String places[] = {"Choose a destination", "Baku", "Qazax", "Quba", "Qebele", "Berlin", "Istanbul"};
@@ -89,9 +76,8 @@ public class HomePage {
                     Object selectedValue = destinationTextArea.getValue();
                     if (!Objects.equals(selectedValue.toString(), places[0])) {
                         String selectedDestination = selectedValue.toString();
-                        destinations.put(finalI,selectedDestination);
-                    }
-                    else {
+                        destinations.put(finalI, selectedDestination);
+                    } else {
                         destinations.remove(finalI);
                     }
                 }
@@ -102,13 +88,11 @@ public class HomePage {
         }
         leftPanel.add(destinationPanel, BorderLayout.CENTER);
 
-
         JButton submit = new JButton();
         submit.setText("Submit");
         submit.setBackground(new Color(79, 113, 202));
         submit.setFont(new Font("Arial", Font.BOLD, 14));
         submit.setForeground(Color.WHITE);
-
         submit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -118,9 +102,7 @@ public class HomePage {
             }
         });
         leftPanel.add(submit, BorderLayout.SOUTH);
-
         leftPanel.add(submit, BorderLayout.SOUTH);
-
 
         // right panel
         JPanel rightPanel = new JPanel() {
@@ -134,33 +116,26 @@ public class HomePage {
 
         rightPanel.setLayout(new BorderLayout());
         rightPanel.setBorder(new EmptyBorder(30, 0, 0, 0));
-
         JLabel rightHeader = new JLabel("Result: ");
         rightHeader.setHorizontalAlignment(SwingConstants.CENTER);
-
-
-        rightResult = new JLabel(destinations.toString());
+        rightResult = new JLabel("You have not selected any data. ");
         rightResult.setHorizontalAlignment(SwingConstants.CENTER);
         rightResult.setFont(new Font("Arial", Font.BOLD, 14));
-
 
         rightHeader.setFont(new Font("Arial", Font.BOLD, 16));
         rightHeader.setVerticalAlignment(SwingConstants.TOP);
         rightPanel.add(rightHeader, BorderLayout.NORTH);
         rightPanel.add(rightResult, BorderLayout.CENTER);
 
-
+        // add left & right panel to main panel
         mainPanel.add(leftPanel, BorderLayout.WEST);
         mainPanel.add(rightPanel, BorderLayout.EAST);
 
         ui.add(panel, BorderLayout.NORTH);
         ui.add(mainPanel, BorderLayout.CENTER);
     }
-
-
     private void updateResultLabel() {
-        rightResult.setText(destinations.toString());
+        rightResult.setText(!destinations.isEmpty() ?destinations.toString():"You have not selected any data.");
     }
-
 
 }
