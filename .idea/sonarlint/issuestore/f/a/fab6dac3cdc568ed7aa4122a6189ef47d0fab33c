@@ -1,0 +1,12 @@
+
+	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ïåşœí1J$2f418089-69d4-4f4e-b8cc-af8e8d952d29
+	java:S112 "FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ğåşœí1J$fa855968-d552-47cf-b8a3-8cdf9b3b6ed9
+	java:S1127"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ñåşœí1J$7fbc9a6b-6f39-48fd-9470-39257453fb3e
+	java:S112E"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ñåşœí1J$acf92028-45df-4e07-b176-5b17f11fd6ee
+£
+java:S1450"[Remove the "clientNumber" field and declare it as a local variable in the relevant methods.(òŸŸúÿÿÿÿ8şåşœí1J$c2aab338-2ede-4352-9e08-01ac0b37c6c1
+‡
+java:S2147"DCombine this catch with the one at line 29, which has the same body.(ï­£Ä8æşœí1J$88e69e79-7acb-4660-a4b0-ee64e44869e2
+r	java:S106"+Replace this use of System.out by a logger.(‡ìò‘øÿÿÿÿ8†æşœí1J$dfb3506f-4b5d-437a-be08-d929cabb6f02
+m	java:S106"+Replace this use of System.out by a logger.(ğ²è8‡æşœí1J$b67b2033-c186-4fc6-bb82-0f3f923eccf2
+r	java:S106A"+Replace this use of System.out by a logger.(’ˆ¶«şÿÿÿÿ8æşœí1J$a14a33ea-40b4-440d-9b8e-749343cd58b1
