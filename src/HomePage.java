@@ -5,21 +5,36 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Objects;
+import java.util.List;
+
 public class HomePage {
     private JFrame ui;
     private HashMap<Integer, String> destinations = new HashMap<>();
     private JLabel rightResult;
+    private Client client;
 
     public HomePage() {
-        destinations = new HashMap<>();
         initialize();
+        client = new Client();
+        client.createConnection();
     }
+
     private void initialize() {
         ui = new JFrame("Assignments");
         ui.setSize(800, 600);
         ui.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        ui.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                client.disconnect();
+            }
+        });
         ui.setVisible(true);
 
         //header panel
@@ -64,7 +79,19 @@ public class HomePage {
             JPanel destinationEntry = new JPanel(new BorderLayout());
             JLabel destinationLabel = new JLabel("Destination " + (i + 1));
 
-            String places[] = {"Choose a destination", "Baku", "Qazax", "Quba", "Qebele", "Berlin", "Istanbul"};
+            String places[] = {
+                    "Choose a destination",
+                    "Paris",
+                    "London",
+                    "Dubai",
+                    "Tokyo",
+                    "Istanbul",
+                    "Rome",
+                    "Singapore",
+                    "Seoul",
+                    "New York City",
+                    "Baku"
+            };
             JSpinner destinationTextArea = new JSpinner(new SpinnerListModel(places));
 
             Dimension preferredSize = destinationTextArea.getPreferredSize();
@@ -76,7 +103,7 @@ public class HomePage {
                 @Override
                 public void stateChanged(ChangeEvent e) {
                     Object selectedValue = destinationTextArea.getValue();
-                    if (!Objects.equals(selectedValue.toString(), places[0])) {
+                    if (!selectedValue.toString().equals(places[0])) {
                         String selectedDestination = selectedValue.toString();
                         destinations.put(finalI, selectedDestination);
                     } else {
@@ -95,13 +122,15 @@ public class HomePage {
         submit.setBackground(new Color(79, 113, 202));
         submit.setFont(new Font("Arial", Font.BOLD, 14));
         submit.setForeground(Color.WHITE);
-        submit.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-//                JOptionPane.showMessageDialog(ui, "Submitted successfully");
-                updateResultLabel();
+        submit.addActionListener(e -> {
 
-            }
+            List<String> preferences = new ArrayList<>(5);
+            preferences.addAll(destinations.values());
+
+            client.submitResults(preferences);
+            String result = client.receiveAssignment();
+            updateResultLabel(result);
+
         });
         leftPanel.add(submit, BorderLayout.SOUTH);
         leftPanel.add(submit, BorderLayout.SOUTH);
@@ -136,8 +165,8 @@ public class HomePage {
         ui.add(panel, BorderLayout.NORTH);
         ui.add(mainPanel, BorderLayout.CENTER);
     }
-    private void updateResultLabel() {
-        rightResult.setText(!destinations.isEmpty() ?destinations.toString():"You have not selected any data.");
-    }
 
+    private void updateResultLabel(String result) {
+        rightResult.setText(result);
+    }
 }
