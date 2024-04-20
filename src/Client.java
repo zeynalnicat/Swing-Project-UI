@@ -27,19 +27,6 @@ public class Client {
             clientNumber = in.readLine();
             System.out.println("Client number: " + clientNumber);
 
-            running = true;
-
-            // Start listening for messages from the server in a separate thread
-            Thread listenThread = new Thread(() -> {
-                while (running) {
-                    String message = receiveAssignment();
-                    if (message != null) {
-                        System.out.println("Server: " + message);
-                    }
-                }
-            });
-            listenThread.start();
-
         } catch (UnknownHostException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -60,6 +47,7 @@ public class Client {
         try {
             String assignment;
             while ((assignment = in.readLine()) != null) {
+                System.out.println(assignment);
                 if (assignment.startsWith("You are assigned to ")) {
                     return assignment;
                 }

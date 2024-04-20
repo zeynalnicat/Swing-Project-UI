@@ -1,20 +1,18 @@
 
 
-java:S11920"FDefine a constant instead of duplicating this literal "Arial" 5 times.(¢–ÁÛıÿÿÿÿ8ğ™Ğœí1J$2a56bcb9-90ac-4280-b607-0ceb7f8ffce4
+java:S11920"FDefine a constant instead of duplicating this literal "Arial" 5 times.(¢–ÁÛıÿÿÿÿ8“öÿâï1J$3d364d29-a971-4191-a853-b00bc9c1fc36
 j
-java:S1604f"(Make this anonymous inner class a lambda(ÀÃ8ñ™Ğœí1J$62edffab-184b-4f2b-97fa-4fde7f9f8c9d
+java:S1604f"(Make this anonymous inner class a lambda(ÀÃ8•öÿâï1J$b5588d54-4f2b-400f-9a2f-6e8ce44ad146
 ™
-java:S1450"QRemove the "ui" field and declare it as a local variable in the relevant methods.(ˆÁ‹ûûÿÿÿÿ8šĞœí1J$60b6536a-0d37-45c9-82fa-44cf750692b0
+java:S1450"QRemove the "ui" field and declare it as a local variable in the relevant methods.(ˆÁ‹ûûÿÿÿÿ8®öÿâï1J$d321602a-f00a-4382-acee-2e8082cf0e3f
 ”
-java:S3252"LUse static access with "javax.swing.WindowConstants" for "DISPOSE_ON_CLOSE".(ÂÚƒßùÿÿÿÿ8–šĞœí1J$8ba2bf7a-51e2-46cb-bcc9-019566520efc
-d
-java:S1116L"Remove this empty statement.(Åñ­õşÿÿÿÿ8 šĞœí1J$d0cb9553-81d3-4c1d-b208-8de069623e30
+java:S3252"LUse static access with "javax.swing.WindowConstants" for "DISPOSE_ON_CLOSE".(ÂÚƒßùÿÿÿÿ8´öÿâï1J$e4ab2791-ce1e-4b39-84f3-fdd8813cafc5
 m
-java:S1197R"*Move the array designators [] to the type.(°„²î8¢šĞœí1J$10213d54-c4fd-4556-9149-6160fe15478b
-T
-java:S1128"7Remove this unused import 'java.awt.event.ActionEvent'.(Úù“‘8­¹Êí1
-W
-java:S1128":Remove this unused import 'java.awt.event.ActionListener'.(Ìä¹8­¹Êí1
-R
+java:S1197R"*Move the array designators [] to the type.(°„²î8¿öÿâï1J$536a1c37-6f48-48fd-a338-35900b27b7e0
+z
+java:S1128"7Remove this unused import 'java.awt.event.ActionEvent'.(Úù“‘8ùÁñâï1J$0f684282-e1f1-4863-9602-46ae8d7ad009
+}
+java:S1128":Remove this unused import 'java.awt.event.ActionListener'.(Ìä¹8ùÁñâï1J$edf19c2e-e9da-42e2-9fe8-03ebca3b9b3d
+x
 java:S1128
-"0Remove this unused import 'java.io.IOException'.(ªº»Úıÿÿÿÿ8­¹Êí1
+"0Remove this unused import 'java.io.IOException'.(ªº»Úıÿÿÿÿ8ùÁñâï1J$31e01ec0-403e-4ee0-aef8-2d2119072fde

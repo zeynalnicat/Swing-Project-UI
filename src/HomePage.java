@@ -73,7 +73,7 @@ public class HomePage {
         leftPanel.add(leftHeader, BorderLayout.NORTH);
 
         JPanel destinationPanel = new JPanel(new GridLayout(5, 1, 0, 10));
-        ;
+
         destinationPanel.setBorder(new EmptyBorder(30, 0, 30, 0));
         for (int i = 0; i < 5; i++) {
             JPanel destinationEntry = new JPanel(new BorderLayout());

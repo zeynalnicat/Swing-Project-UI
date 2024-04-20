@@ -21,3 +21,5 @@ S
 Q.idea/sonarlint/securityhotspotstore/c/f/cf7ae9538c1ba134b18de36259898977d11000ef,7\8\78e6fa04f9099429050bd61939e6c5ec73208660
 Å
 Q.idea/sonarlint/securityhotspotstore/c/1/c15338e614e34705d481103e0251128d26d7aef9,b\3\b3bfb339cc166d43299f6b1bd558d8fd46ee7ea5
+=
+src/Test.java,a\8\a862b92d10f810e224187403c322cb8e01f5e244

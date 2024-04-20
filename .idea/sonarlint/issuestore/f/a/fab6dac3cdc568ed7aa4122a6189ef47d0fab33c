@@ -1,12 +1,15 @@
 
-	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ïåşœí1J$2f418089-69d4-4f4e-b8cc-af8e8d952d29
-	java:S112 "FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ğåşœí1J$fa855968-d552-47cf-b8a3-8cdf9b3b6ed9
-	java:S1127"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ñåşœí1J$7fbc9a6b-6f39-48fd-9470-39257453fb3e
-	java:S112E"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ñåşœí1J$acf92028-45df-4e07-b176-5b17f11fd6ee
-£
-java:S1450"[Remove the "clientNumber" field and declare it as a local variable in the relevant methods.(òŸŸúÿÿÿÿ8şåşœí1J$c2aab338-2ede-4352-9e08-01ac0b37c6c1
+	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ïåşœí1J$85ad226a-e631-4382-9b8b-568b2c82fe7c
+	java:S112!"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ğåşœí1J$0c8e9b46-04e3-4b5f-9e6d-8d04a35cbb34
+	java:S1129"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ñåşœí1J$4c2ffa97-d85f-4849-bacd-003c9a921844
+	java:S112G"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ñêîáï1J$2bb29946-17d6-4586-862c-3a7f0ce0b0bb
+}
+java:S1450"[Remove the "clientNumber" field and declare it as a local variable in the relevant methods.(òŸŸúÿÿÿÿ8éå€ãï1
 ‡
-java:S2147"DCombine this catch with the one at line 29, which has the same body.(ï­£Ä8æşœí1J$88e69e79-7acb-4660-a4b0-ee64e44869e2
-r	java:S106"+Replace this use of System.out by a logger.(‡ìò‘øÿÿÿÿ8†æşœí1J$dfb3506f-4b5d-437a-be08-d929cabb6f02
-m	java:S106"+Replace this use of System.out by a logger.(ğ²è8‡æşœí1J$b67b2033-c186-4fc6-bb82-0f3f923eccf2
-r	java:S106A"+Replace this use of System.out by a logger.(’ˆ¶«şÿÿÿÿ8æşœí1J$a14a33ea-40b4-440d-9b8e-749343cd58b1
+java:S2147 "DCombine this catch with the one at line 30, which has the same body.(ï­£Ä8æşœí1J$4983c5c9-4f32-4a83-af46-5831c334a448
+r	java:S106"+Replace this use of System.out by a logger.(‡ìò‘øÿÿÿÿ8æşœí1J$2b39c90a-f180-45f1-97ae-5deac0331df5
+m	java:S106"+Replace this use of System.out by a logger.(ğ²è8§ó áï1J$700832c0-93d5-4d84-b19d-954954c3019c
+m	java:S1062"+Replace this use of System.out by a logger.(—ëâ8¸ó áï1J$8bf8e1c9-fb1d-4940-91f4-aab5f1bef1b3
+r	java:S106C"+Replace this use of System.out by a logger.(’ˆ¶«şÿÿÿÿ8Ü³Œâï1J$e4461cd2-fdc8-4be3-a632-9380ed601d49
+n
+java:S1068"+Remove this unused "running" private field.(ó§°Ò8É±½áï1J$d9475927-21dd-4fc4-8f3f-82e13d5b134a
