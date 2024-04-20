@@ -30,7 +30,7 @@ This user interface (UI) is designed to interact with the server-side applicatio
 ## Usage
 
 1. **Compile**: Compile all Java files in the UI directory.
-2. **Run**: Execute the Test class to launch multiple client UIs.
+2. **Run**: Execute the Test class to launch multiple client UIs (Shortcut: Run Test).
 3. **Submit Preferences**: Select destinations and click the "Submit" button to send preferences to the server.
 4. **Receive Assignment**: View the assignment result displayed on the UI.
 
