@@ -1,7 +1,8 @@
 import javax.swing.*;
 
-public class UserInterface {
-    public static void main(String[] args) {
+public class UserInterface implements Runnable {
+    @Override
+    public void run() {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {

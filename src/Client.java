@@ -13,6 +13,7 @@ public class Client {
     private BufferedReader in;
     private PrintWriter out;
     private String clientNumber;
+    private boolean running;
 
     public void createConnection() {
         try {
@@ -25,6 +26,19 @@ public class Client {
             System.out.println(serverMessage);
             clientNumber = in.readLine();
             System.out.println("Client number: " + clientNumber);
+
+            running = true;
+
+            // Start listening for messages from the server in a separate thread
+            Thread listenThread = new Thread(() -> {
+                while (running) {
+                    String message = receiveAssignment();
+                    if (message != null) {
+                        System.out.println("Server: " + message);
+                    }
+                }
+            });
+            listenThread.start();
 
         } catch (UnknownHostException e) {
             throw new RuntimeException(e);
