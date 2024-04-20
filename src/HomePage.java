@@ -18,68 +18,70 @@ public class HomePage {
     private JLabel rightResult;
     private Client client;
 
+    // Constructor
     public HomePage() {
-        initialize();
-        client = new Client();
-        client.createConnection();
+        initialize(); // Initialize UI components
+        client = new Client(); // Initialize the client
+        client.createConnection(); // Create connection to the server
     }
 
+    // Initialize UI components
     private void initialize() {
-        ui = new JFrame("Assignments");
-        ui.setSize(800, 600);
-        ui.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        ui = new JFrame("Assignments"); // Create main JFrame
+        ui.setSize(800, 600); // Set size of the JFrame
+        ui.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Set default close operation
         ui.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
                 super.windowClosing(e);
-                client.disconnect();
+                client.disconnect(); // Disconnect from the server when closing the window
             }
         });
-        ui.setVisible(true);
+        ui.setVisible(true); // Set JFrame visible
 
-        //header panel
-        JPanel panel = new JPanel();
-        panel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 5));
-        panel.setBackground(new Color(79, 113, 202));
-        panel.setPreferredSize(new Dimension(200, 80));
+        // Header panel
+        JPanel panel = new JPanel(); // Create header panel
+        panel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 5)); // Set layout for header panel
+        panel.setBackground(new Color(79, 113, 202)); // Set background color
+        panel.setPreferredSize(new Dimension(200, 80)); // Set preferred size for header panel
 
-        JLabel txtHeader = new JLabel("Assignments");
-        txtHeader.setForeground(Color.WHITE);
-        txtHeader.setFont(new Font("Arial", Font.BOLD, 24));
-        txtHeader.setBorder(new EmptyBorder(20, 0, 0, 0));
-        panel.add(txtHeader, BorderLayout.CENTER);
+        JLabel txtHeader = new JLabel("Assignments"); // Create header label
+        txtHeader.setForeground(Color.WHITE); // Set text color
+        txtHeader.setFont(new Font("Arial", Font.BOLD, 24)); // Set font
+        txtHeader.setBorder(new EmptyBorder(20, 0, 0, 0)); // Set border
+        panel.add(txtHeader, BorderLayout.CENTER); // Add label to panel
 
-        // main label
-        JPanel mainPanel = new JPanel(new BorderLayout());
-        mainPanel.setBackground(Color.WHITE);
+        // Main label
+        JPanel mainPanel = new JPanel(new BorderLayout()); // Create main panel
+        mainPanel.setBackground(Color.WHITE); // Set background color
 
-        JPanel leftPanel = new JPanel() {
+        // Left panel
+        JPanel leftPanel = new JPanel() { // Create left panel
             @Override
             public Dimension getPreferredSize() {
-                Dimension size = super.getPreferredSize();
-                size.width = mainPanel.getWidth() / 2;
-                return size;
+                Dimension size = super.getPreferredSize(); // Get preferred size
+                size.width = mainPanel.getWidth() / 2; // Set width
+                return size; // Return size
             }
         };
 
-        // left panel
-        leftPanel.setLayout(new BorderLayout());
-        leftPanel.setBorder(new EmptyBorder(30, 30, 30, 0));
-        JLabel leftHeader = new JLabel("Select up to 5 destinations");
-        leftHeader.setVerticalAlignment(SwingConstants.TOP);
-        leftHeader.setFont(new Font("Arial", Font.BOLD, 16));
-        leftHeader.setHorizontalAlignment(SwingConstants.CENTER);
-        leftPanel.add(Box.createVerticalGlue(), BorderLayout.NORTH);
-        leftPanel.add(leftHeader, BorderLayout.NORTH);
+        leftPanel.setLayout(new BorderLayout()); // Set layout for left panel
+        leftPanel.setBorder(new EmptyBorder(30, 30, 30, 0)); // Set border
+        JLabel leftHeader = new JLabel("Select up to 5 destinations"); // Create header label for left panel
+        leftHeader.setVerticalAlignment(SwingConstants.TOP); // Set vertical alignment
+        leftHeader.setFont(new Font("Arial", Font.BOLD, 16)); // Set font
+        leftHeader.setHorizontalAlignment(SwingConstants.CENTER); // Set horizontal alignment
+        leftPanel.add(Box.createVerticalGlue(), BorderLayout.NORTH); // Add vertical glue
+        leftPanel.add(leftHeader, BorderLayout.NORTH); // Add header label
 
-        JPanel destinationPanel = new JPanel(new GridLayout(5, 1, 0, 10));
+        JPanel destinationPanel = new JPanel(new GridLayout(5, 1, 0, 10)); // Create panel for destinations
+        destinationPanel.setBorder(new EmptyBorder(30, 0, 30, 0)); // Set border
 
-        destinationPanel.setBorder(new EmptyBorder(30, 0, 30, 0));
-        for (int i = 0; i < 5; i++) {
-            JPanel destinationEntry = new JPanel(new BorderLayout());
-            JLabel destinationLabel = new JLabel("Destination " + (i + 1));
+        for (int i = 0; i < 5; i++) { // Loop through 5 destinations
+            JPanel destinationEntry = new JPanel(new BorderLayout()); // Create panel for each destination
+            JLabel destinationLabel = new JLabel("Destination " + (i + 1)); // Create label for destination
 
-            String places[] = {
+            String places[] = { // Array of destination options
                     "Choose a destination",
                     "Paris",
                     "London",
@@ -92,81 +94,80 @@ public class HomePage {
                     "New York City",
                     "Baku"
             };
-            JSpinner destinationTextArea = new JSpinner(new SpinnerListModel(places));
+            JSpinner destinationTextArea = new JSpinner(new SpinnerListModel(places)); // Create spinner for destinations
 
-            Dimension preferredSize = destinationTextArea.getPreferredSize();
-            preferredSize.height = 50;
-            destinationTextArea.setPreferredSize(preferredSize);
+            Dimension preferredSize = destinationTextArea.getPreferredSize(); // Get preferred size
+            preferredSize.height = 50; // Set height
+            destinationTextArea.setPreferredSize(preferredSize); // Set preferred size
 
             int finalI = i;
-            destinationTextArea.addChangeListener(new ChangeListener() {
+            destinationTextArea.addChangeListener(new ChangeListener() { // Add change listener to spinner
                 @Override
                 public void stateChanged(ChangeEvent e) {
-                    Object selectedValue = destinationTextArea.getValue();
-                    if (!selectedValue.toString().equals(places[0])) {
-                        String selectedDestination = selectedValue.toString();
-                        destinations.put(finalI, selectedDestination);
+                    Object selectedValue = destinationTextArea.getValue(); // Get selected value
+                    if (!selectedValue.toString().equals(places[0])) { // Check if it's not the default option
+                        String selectedDestination = selectedValue.toString(); // Get selected destination
+                        destinations.put(finalI, selectedDestination); // Add to destinations map
                     } else {
-                        destinations.remove(finalI);
+                        destinations.remove(finalI); // Remove from destinations map
                     }
                 }
             });
-            destinationEntry.add(destinationLabel, BorderLayout.NORTH);
-            destinationEntry.add(destinationTextArea, BorderLayout.CENTER);
-            destinationPanel.add(destinationEntry);
+            destinationEntry.add(destinationLabel, BorderLayout.NORTH); // Add label to destination entry
+            destinationEntry.add(destinationTextArea, BorderLayout.CENTER); // Add spinner to destination entry
+            destinationPanel.add(destinationEntry); // Add destination entry to destination panel
         }
-        leftPanel.add(destinationPanel, BorderLayout.CENTER);
+        leftPanel.add(destinationPanel, BorderLayout.CENTER); // Add destination panel to left panel
 
-        JButton submit = new JButton();
-        submit.setText("Submit");
-        submit.setBackground(new Color(79, 113, 202));
-        submit.setFont(new Font("Arial", Font.BOLD, 14));
-        submit.setForeground(Color.WHITE);
-        submit.addActionListener(e -> {
+        JButton submit = new JButton(); // Create submit button
+        submit.setText("Submit"); // Set text
+        submit.setBackground(new Color(79, 113, 202)); // Set background color
+        submit.setFont(new Font("Arial", Font.BOLD, 14)); // Set font
+        submit.setForeground(Color.WHITE); // Set text color
+        submit.addActionListener(e -> { // Add action listener
 
-            List<String> preferences = new ArrayList<>(5);
-            preferences.addAll(destinations.values());
-
-            client.submitResults(preferences);
-            String result = client.receiveAssignment();
-            updateResultLabel(result);
+            List<String> preferences = new ArrayList<>(5); // Create list for preferences
+            preferences.addAll(destinations.values()); // Add destinations to preferences list
+            client.submitResults(preferences); // Submit preferences to the server
+            String result = client.receiveAssignment(); // Receive assignment from the server
+            updateResultLabel(result); // Update result label with the received assignment
 
         });
-        leftPanel.add(submit, BorderLayout.SOUTH);
-        leftPanel.add(submit, BorderLayout.SOUTH);
+        leftPanel.add(submit, BorderLayout.SOUTH); // Add submit button to left panel
 
-        // right panel
-        JPanel rightPanel = new JPanel() {
+        // Right panel
+        JPanel rightPanel = new JPanel() { // Create right panel
             @Override
             public Dimension getPreferredSize() {
-                Dimension size = super.getPreferredSize();
-                size.width = mainPanel.getWidth() / 2;
-                return size;
+                Dimension size = super.getPreferredSize(); // Get preferred size
+                size.width = mainPanel.getWidth() / 2; // Set width
+                return size; // Return size
             }
         };
 
-        rightPanel.setLayout(new BorderLayout());
-        rightPanel.setBorder(new EmptyBorder(30, 0, 0, 0));
-        JLabel rightHeader = new JLabel("Result: ");
-        rightHeader.setHorizontalAlignment(SwingConstants.CENTER);
-        rightResult = new JLabel("You have not selected any data. ");
-        rightResult.setHorizontalAlignment(SwingConstants.CENTER);
-        rightResult.setFont(new Font("Arial", Font.BOLD, 14));
+        rightPanel.setLayout(new BorderLayout()); // Set layout for right panel
+        rightPanel.setBorder(new EmptyBorder(30, 0, 0, 0)); // Set border
+        JLabel rightHeader = new JLabel("Result: "); // Create header label for right panel
+        rightHeader.setHorizontalAlignment(SwingConstants.CENTER); // Set horizontal alignment
+        rightResult = new JLabel("You have not selected any data. "); // Create result label
+        rightResult.setHorizontalAlignment(SwingConstants.CENTER); // Set horizontal alignment
+        rightResult.setFont(new Font("Arial", Font.BOLD, 14)); // Set font
 
-        rightHeader.setFont(new Font("Arial", Font.BOLD, 16));
-        rightHeader.setVerticalAlignment(SwingConstants.TOP);
-        rightPanel.add(rightHeader, BorderLayout.NORTH);
-        rightPanel.add(rightResult, BorderLayout.CENTER);
+        rightHeader.setFont(new Font("Arial", Font.BOLD, 16)); // Set font for header
+        rightHeader.setVerticalAlignment(SwingConstants.TOP); // Set vertical alignment
+        rightPanel.add(rightHeader, BorderLayout.NORTH); // Add header label to right panel
+        rightPanel.add(rightResult, BorderLayout.CENTER); // Add result label to right panel
 
-        // add left & right panel to main panel
-        mainPanel.add(leftPanel, BorderLayout.WEST);
-        mainPanel.add(rightPanel, BorderLayout.EAST);
+        // Add left and right panels to main panel
+        mainPanel.add(leftPanel, BorderLayout.WEST); // Add left panel to main panel
+        mainPanel.add(rightPanel, BorderLayout.EAST); // Add right panel to main panel
 
-        ui.add(panel, BorderLayout.NORTH);
-        ui.add(mainPanel, BorderLayout.CENTER);
+        ui.add(panel, BorderLayout.NORTH); // Add header panel to JFrame
+        ui.add(mainPanel, BorderLayout.CENTER); // Add main panel to JFrame
     }
 
+    // Method to update the result label
     private void updateResultLabel(String result) {
-        rightResult.setText(result);
+        rightResult.setText(result); // Set text of the result label
     }
 }
