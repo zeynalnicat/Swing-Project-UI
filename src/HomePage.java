@@ -3,11 +3,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -28,7 +25,7 @@ public class HomePage {
     // Initialize UI components
     private void initialize() {
         ui = new JFrame("Assignments"); // Create main JFrame
-        ui.setSize(800, 600); // Set size of the JFrame
+        ui.setSize(550, 550); // Set size of the JFrame
         ui.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Set default close operation
         ui.addWindowListener(new WindowAdapter() {
             @Override
@@ -82,18 +79,7 @@ public class HomePage {
             JLabel destinationLabel = new JLabel("Destination " + (i + 1)); // Create label for destination
 
             String places[] = { // Array of destination options
-                    "Choose a destination",
-                    "Paris",
-                    "London",
-                    "Dubai",
-                    "Tokyo",
-                    "Istanbul",
-                    "Rome",
-                    "Singapore",
-                    "Seoul",
-                    "New York City",
-                    "Baku"
-            };
+                    "Choose a destination", "Paris", "London", "Dubai", "Tokyo", "Istanbul", "Rome", "Singapore", "Seoul", "New York City", "Baku"};
             JSpinner destinationTextArea = new JSpinner(new SpinnerListModel(places)); // Create spinner for destinations
 
             Dimension preferredSize = destinationTextArea.getPreferredSize(); // Get preferred size
@@ -124,15 +110,18 @@ public class HomePage {
         submit.setBackground(new Color(79, 113, 202)); // Set background color
         submit.setFont(new Font("Arial", Font.BOLD, 14)); // Set font
         submit.setForeground(Color.WHITE); // Set text color
-        submit.addActionListener(e -> { // Add action listener
 
-            List<String> preferences = new ArrayList<>(5); // Create list for preferences
-            preferences.addAll(destinations.values()); // Add destinations to preferences list
-            client.submitResults(preferences); // Submit preferences to the server
-            String result = client.receiveAssignment(); // Receive assignment from the server
-            updateResultLabel(result); // Update result label with the received assignment
-
+        submit.addActionListener(e -> {
+            List<String> preferences = new ArrayList<>(5);
+            preferences.addAll(destinations.values());
+            client.submitResults(preferences);
+            submit.setEnabled(false);
+            client.receiveAssignment(result -> {
+                updateResultLabel(result);
+                submit.setEnabled(true);
+            });
         });
+
         leftPanel.add(submit, BorderLayout.SOUTH); // Add submit button to left panel
 
         // Right panel

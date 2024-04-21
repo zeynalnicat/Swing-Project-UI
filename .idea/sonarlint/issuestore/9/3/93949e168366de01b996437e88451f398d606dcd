@@ -1,18 +1,11 @@
 
-
-java:S11920"FDefine a constant instead of duplicating this literal "Arial" 5 times.(¢–ÁÛıÿÿÿÿ8“öÿâï1J$3d364d29-a971-4191-a853-b00bc9c1fc36
-j
-java:S1604f"(Make this anonymous inner class a lambda(ÀÃ8•öÿâï1J$b5588d54-4f2b-400f-9a2f-6e8ce44ad146
+‰
+java:S1192/"FDefine a constant instead of duplicating this literal "Arial" 5 times.(«”×“8ÿÁÑƒğ1J$1fddbfdd-933b-4075-a4e0-667ea577581d
+p
+java:S1604Z"(Make this anonymous inner class a lambda(äú±‰úÿÿÿÿ8ÂÑƒğ1J$a6c3f127-7190-44f4-8848-aa3aef40fd72
 ™
-java:S1450"QRemove the "ui" field and declare it as a local variable in the relevant methods.(ˆÁ‹ûûÿÿÿÿ8®öÿâï1J$d321602a-f00a-4382-acee-2e8082cf0e3f
-”
-java:S3252"LUse static access with "javax.swing.WindowConstants" for "DISPOSE_ON_CLOSE".(ÂÚƒßùÿÿÿÿ8´öÿâï1J$e4ab2791-ce1e-4b39-84f3-fdd8813cafc5
+java:S1450"QRemove the "ui" field and declare it as a local variable in the relevant methods.(ˆÁ‹ûûÿÿÿÿ8¨ÂÑƒğ1J$8d81d131-3727-4a1f-a659-265b57c704e2
+
+java:S3252"LUse static access with "javax.swing.WindowConstants" for "DISPOSE_ON_CLOSE".(¸¦©À8±ÂÑƒğ1J$74024b4e-dc70-4d3d-8b53-756cf9ac44ec
 m
-java:S1197R"*Move the array designators [] to the type.(°„²î8¿öÿâï1J$536a1c37-6f48-48fd-a338-35900b27b7e0
-z
-java:S1128"7Remove this unused import 'java.awt.event.ActionEvent'.(Úù“‘8ùÁñâï1J$0f684282-e1f1-4863-9602-46ae8d7ad009
-}
-java:S1128":Remove this unused import 'java.awt.event.ActionListener'.(Ìä¹8ùÁñâï1J$edf19c2e-e9da-42e2-9fe8-03ebca3b9b3d
-x
-java:S1128
-"0Remove this unused import 'java.io.IOException'.(ªº»Úıÿÿÿÿ8ùÁñâï1J$31e01ec0-403e-4ee0-aef8-2d2119072fde
+java:S1197Q"*Move the array designators [] to the type.(¿Ğ É8ÁÂÑƒğ1J$c6d09613-097d-4dd0-82b1-d7eed7a84e8d
